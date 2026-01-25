@@ -62,12 +62,7 @@ def get_autosage_response(user_query, image_file=None):
 
     return response.text
 
-def generate_vehicle_image(prompt):
-    response = client.models.generate_content(
-        model="models/imagen-4.0-fast-generate-001",
-        contents=prompt
-    )
-    return response.images[0].image_bytes
+
 
 
 # ---------------- STREAMLIT UI ----------------
@@ -111,8 +106,5 @@ if st.button("Get Vehicle Info"):
         st.success("Here is your result:")
         st.write(response)
 
-if "image" in user_query.lower() or "show" in user_query.lower():
-    with st.spinner("Generating vehicle image..."):
-        image_bytes = generate_vehicle_image(user_query)
-        st.image(image_bytes, caption="AI-generated vehicle image")
+
 
