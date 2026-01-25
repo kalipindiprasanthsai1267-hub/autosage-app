@@ -5,11 +5,18 @@ from google import genai
 from google.genai import types
 
 
-# Load environment variables
+# Load environment variables (local)
 load_dotenv()
 
-# Read API key
+# Get API key (local OR Streamlit Cloud)
 api_key = os.getenv("GOOGLE_API_KEY")
+
+if api_key is None:
+    api_key = st.secrets.get("GOOGLE_API_KEY")
+
+if api_key is None:
+    st.error("Google API Key is missing. Please add it to Streamlit Secrets.")
+    st.stop()
 
 # Create Gemini client
 client = genai.Client(api_key=api_key)
