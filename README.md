@@ -44,6 +44,8 @@ AutoSage provides a **single intelligent platform** where users can:
 
 ---
 
+Streamlit project Link: https://autosage-app-fecbgvrsuhla58c9qekcgp.streamlit.app/
+
 ## 📁 Project Structure
 
 ```text
@@ -53,3 +55,4 @@ AutoSage/
 ├── requirements.txt
 ├── images/
 └── README.md
+
